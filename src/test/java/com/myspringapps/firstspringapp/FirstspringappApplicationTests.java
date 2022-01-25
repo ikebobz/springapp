@@ -34,11 +34,11 @@ class FirstspringappApplicationTests {
 	@Before
 	public void pretests() throws Exception
 	{
-		Stream.of(new String[]{"Freddy","Quimby","TX","+111789","fq@warnerbros.com","male"},new String[]{"ken","rogers","NJ","+23456234","krogers@outlook.com","male"}).forEach(d -> er.save(new Employee(d)));
+		//Stream.of(new String[]{"Freddy","Quimby","TX","+111789","fq@warnerbros.com","male"},new String[]{"ken","rogers","NJ","+23456234","krogers@outlook.com","male"}).forEach(d -> er.save(new Employee(d)));
 	}
 	@Test
 	public void EmployeeReflectedInRead() throws ExecutionException{
-		MediaType haljson = MediaType.parseMediaType("application/hal+json;charset=UTF-8");
+		//MediaType haljson = MediaType.parseMediaType("application/hal+json;charset=UTF-8");
 	    //this.mvc.perform(MockMvcRequestBuilders.get("/employees"));
 	}
 

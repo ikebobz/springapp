@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class Product {
 
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 public Long id;
 public String description;
 public double price;

@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 @Entity
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long Id;
     Date orderDate;
-    Long[] items;
+    
 }

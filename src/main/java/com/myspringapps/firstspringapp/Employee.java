@@ -10,18 +10,8 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 public class Employee {
- public Employee(String[] values){
-     this.firstname = values[1];
-     this.lastname = values[2];
-     this.address = values[3];
-     this.mobile = values[4];
-     this.email = values[5];
-     this.Sex = values[6];
-
- }
-
  @Id
- @GeneratedValue(strategy = GenerationType.AUTO)
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
  public Long Id;
  
  public String firstname;

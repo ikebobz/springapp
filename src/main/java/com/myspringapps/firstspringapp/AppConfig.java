@@ -22,7 +22,7 @@ public class AppConfig {
       DataSourceBuilder builder = DataSourceBuilder.create();
       builder.username("postgres");
       builder.password("");
-      builder.url();
+      builder.url("jdbc:postgresql://localhost:5432/exam");
       return builder.build();
   }
     
