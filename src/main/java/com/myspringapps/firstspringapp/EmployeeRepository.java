@@ -26,3 +26,4 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
   @Query("from Employee where address like %?1%")
   List<Employee> findByAddressContains(@Param("address")String address);
 }
+
