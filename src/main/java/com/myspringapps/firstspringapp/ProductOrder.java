@@ -16,5 +16,11 @@ public class ProductOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long Id;
     public Date orderDate;
+    public String description;
+
+    public String toString()
+    {
+        return this.description;
+    }
     
 }
