@@ -17,7 +17,7 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
   @Query("from Employee where lastname = ?1")
   List<Employee> getByLastName(@Param("lname")String surname);
 
-  @Query("from Employee where frstname = ?1 and lastname = ?2")
+  @Query("from Employee where firstname = ?1 and lastname = ?2")
   List<Employee> byBothNames(@Param("fname")String fname,@Param("lname")String lname);
 
   @Query("from Employee where email = ?1")
