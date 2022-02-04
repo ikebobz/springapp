@@ -1,8 +1,10 @@
 package com.myspringapps.firstspringapp;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,6 +60,12 @@ public class ApplicationController {
     public ResponseEntity<List<Employee>> getEmployeesBySurname(@PathVariable String lastname)
     {
         return new ResponseEntity<>(er.getByLastName(lastname),HttpStatus.OK);
+    }
+
+    @GetMapping("orderbydate")
+    public ResponseEntity<List<ProductOrder>> getOrdersByDate(@RequestParam(name="lower") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date lower,@RequestParam(name="upper") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date upper)
+    {
+        return new ResponseEntity<>(por.findOrderByDateBetween(lower, upper),HttpStatus.OK);
     }
 
     
