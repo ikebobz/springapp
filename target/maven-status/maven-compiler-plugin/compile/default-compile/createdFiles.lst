@@ -1,4 +1,9 @@
+com/myspringapps/firstspringapp/Calculator.class
+com/myspringapps/firstspringapp/ApplicationController.class
+com/myspringapps/firstspringapp/ProductOrderRepository.class
 com/myspringapps/firstspringapp/Product.class
+com/myspringapps/firstspringapp/ProductRepository.class
+com/myspringapps/firstspringapp/ProductOrder.class
 com/myspringapps/firstspringapp/FirstspringappApplication.class
 com/myspringapps/firstspringapp/AppConfig.class
 com/myspringapps/firstspringapp/Employee.class

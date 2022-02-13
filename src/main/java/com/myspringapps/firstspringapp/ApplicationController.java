@@ -25,6 +25,12 @@ public class ApplicationController {
     @Autowired
     private EmployeeRepository er;
 
+    @Autowired
+    private ProductRepository pr;
+    
+    @Autowired
+    private Calculator calculator;
+
     @GetMapping("/circleArea")
     public double getArea(@RequestParam(name = "radi") double radius)
     {
@@ -66,6 +72,53 @@ public class ApplicationController {
     public ResponseEntity<List<ProductOrder>> getOrdersByDate(@RequestParam(name="lower") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date lower,@RequestParam(name="upper") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date upper)
     {
         return new ResponseEntity<>(por.findOrderByDateBetween(lower, upper),HttpStatus.OK);
+    }
+
+    @GetMapping("getproducts/{keyword}")
+    public ResponseEntity<List<Product>> getProducts(@PathVariable String keyword)
+    {
+        return new ResponseEntity<>(pr.findByDescriptionContains(keyword),HttpStatus.OK);
+    }
+    @GetMapping("funcadd")
+    public double getSum(@RequestParam(name = "val1")double val1,@RequestParam(name = "val2")double val2)
+    {
+        return calculator.add(val1, val2);
+    }
+
+    @GetMapping("funcsub")
+    public double getDifference(@RequestParam(name = "val1")double val1,@RequestParam(name = "val2")double val2)
+    {
+        return calculator.difference(val1, val2);
+    }
+
+    @GetMapping("funcprod")
+    public double getProduct(@RequestParam(name = "val1")double val1,@RequestParam(name = "val2")double val2)
+    {
+        return calculator.product(val1, val2);
+    }
+
+    @GetMapping("funcdiv")
+    public double getQuotient(@RequestParam(name = "val1")double val1,@RequestParam(name = "val2")double val2)
+    {
+        return calculator.quotient(val1, val2);
+    }
+
+    @GetMapping("funcsin")
+    public double getSine(@RequestParam(name = "val")double value)
+    {
+        return calculator.sin(value);
+    }
+
+    @GetMapping("funccos")
+    public double getCos(@RequestParam(name = "val")double value)
+    {
+        return calculator.cos(value);
+    }
+
+    @GetMapping("calculator")
+    public String getType()
+    {
+        return String.format("Calculator details are type: %s\nBrand: %s", calculator.type,calculator.brand);
     }
 
     

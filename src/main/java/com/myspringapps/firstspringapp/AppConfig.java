@@ -1,5 +1,6 @@
 package com.myspringapps.firstspringapp;
 
+import java.sql.Date;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -8,6 +9,7 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -29,6 +31,20 @@ public class AppConfig {
       builder.password("");
       builder.url("jdbc:postgresql://localhost:5432/minierp");
       return builder.build();
+  }
+
+  @Bean
+  public static PropertySourcesPlaceholderConfigurer psc(){
+    return new PropertySourcesPlaceholderConfigurer();
+  }
+
+  @Bean
+  public Calculator setupCalculator()
+  {
+    Calculator acalculator = new Calculator();
+    String datestr = "2001-10-05";
+    acalculator.setYearManufactured(Date.valueOf(datestr));
+    return acalculator;
   }
 
   /*@Bean
